@@ -1,17 +1,49 @@
 return {
+  -- messages, cmdline and the popupmenu
   {
     "folke/noice.nvim",
+    opts = function(_, opts)
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = { skip = true },
+      })
+      opts.presets.lsp_doc_border = true
+    end,
+  },
+  -- bufferline
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
+      { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+    },
     opts = {
-      lsp = { hover = { silent = true } },
-      presets = { lsp_doc_border = true },
+      options = {
+        style_preset = require("bufferline").style_preset.minimal,
+      },
     },
   },
+
+  -- dashboard
   {
-    "b0o/incline.nvim",
-    config = function()
-      require("incline").setup()
-    end,
-    -- Optional: Lazy load Incline
-    event = "VeryLazy",
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = [[
+         _________/\     __               
+        /   _____/  |__ |__|______  ____  
+        \_____  \|  |  \|  |_  __ \/ __ \ 
+        /        \      \  ||  | \/  \_\ )
+       /_______  /___|  /__||__|   \____/ 
+               \/     \/                  
+      ]],
+        },
+      },
+    },
   },
 }
