@@ -20,4 +20,24 @@ return {
       })
     end,
   },
+
+  -- Fzf-lua
+  {
+    "ibhagwan/fzf-lua",
+    opts = {
+      files = { formatter = "path.filename_first" },
+      oldfiles = {
+        include_current_session = true,
+        formatter = "path.filename_first",
+      },
+      previewers = {
+        builtin = {
+          render_markdown = {
+            enabled = true,
+            filetypes = { ["markdown"] = true },
+          },
+        },
+      },
+    },
+  },
 }
