@@ -14,6 +14,8 @@ return {
         "scss",
         "sql",
         "svelte",
+        "dockerfile",
+        "arduino",
       },
     },
     config = function(_, opts)
