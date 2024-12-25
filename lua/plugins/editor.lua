@@ -48,9 +48,16 @@ return {
       {
         "<leader>e",
         function()
-          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+          local mini_files = require("mini.files")
+          if vim.b.minifiles_win then
+            mini_files.close()
+            vim.b.minifiles_win = nil
+          else
+            mini_files.open(vim.api.nvim_buf_get_name(0), true)
+            vim.b.minifiles_win = true
+          end
         end,
-        desc = "Open mini.files (directory of current file)",
+        desc = "Toggle mini.files (directory of current file)",
       },
       {
         "<leader>E",
