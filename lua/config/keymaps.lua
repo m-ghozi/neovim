@@ -33,3 +33,6 @@ keymap.set("n", "sl", "<C-w>l")
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
+
+-- fzf-lua
+keymap.set("n", "sf", require("fzf-lua").files, { desc = "Find Files (Root Dir)" })
