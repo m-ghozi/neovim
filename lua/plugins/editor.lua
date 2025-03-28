@@ -57,7 +57,7 @@ return {
             vim.b.minifiles_win = true
           end
         end,
-        desc = "Toggle mini.files (directory of current file)",
+        desc = "Toggle mini.files",
       },
       {
         "<leader>E",
@@ -86,6 +86,18 @@ return {
       },
       options = {
         use_as_default_explorer = true,
+      },
+    },
+  },
+
+  -- which-key
+  {
+    "folke/which-key.nvim",
+    opts = {
+      spec = {
+        { "<leader>e", icon = { icon = " ", color = "cyan" } },
+        { "<leader>E", icon = { icon = " ", color = "cyan" } },
+        { "<leader>K", icon = { icon = "󰘥 ", color = "cyan" } },
       },
     },
   },
